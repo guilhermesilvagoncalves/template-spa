@@ -18,7 +18,7 @@ aws cloudformation create-stack \
   --template-body file://react-cors-spa-stack.yaml
 
 ## Delete stack
-aws delete-stack --stack-name $PAGE_NAME
+aws cloudformation delete-stack --stack-name $PAGE_NAME
 
 ## Get APIEndpoint from CloudFormation
 API_ENDPOINT=$(aws cloudformation describe-stacks \
