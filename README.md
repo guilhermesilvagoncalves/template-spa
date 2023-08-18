@@ -21,14 +21,18 @@ aws cloudformation create-stack \
 aws delete-stack --stack-name $PAGE_NAME
 
 ## Get APIEndpoint from CloudFormation
-aws cloudformation describe-stacks \
+API_ENDPOINT=$(aws cloudformation describe-stacks \
   --stack-name $PAGE_NAME \
-  --profile personal | jq '.Stacks[0].Outputs[] | select (.OutputKey=="APIEndpoint").OutputValue'
+  --profile personal | jq '.Stacks[0].Outputs[] | select (.OutputKey=="APIEndpoint").OutputValue' | sed -e 's/\"//g')
+echo $API_ENDPOINT
 
 ## Get S3 bucket name from CloudFormation
-aws cloudformation describe-stacks \
+S3_BUCKET=$(aws cloudformation describe-stacks \
   --stack-name $PAGE_NAME \
-  --profile personal | jq '.Stacks[0].Outputs[] | select (.OutputKey=="BucketName").OutputValue'
+  --profile personal | jq '.Stacks[0].Outputs[] | select (.OutputKey=="BucketName").OutputValue' | sed -e 's/\"//g')
+echo $S3_BUCKET    
 
+## Upload files to S3
+aws s3 cp "my-page/build" s3://$S3_BUCKET --recursive
 
 Based on https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.html
