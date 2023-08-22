@@ -33,6 +33,6 @@ S3_BUCKET=$(aws cloudformation describe-stacks \
 echo $S3_BUCKET    
 
 ## Upload files to S3
-aws s3 cp "my-page/build" s3://$S3_BUCKET --recursive
+aws s3 cp "react-spa/build" s3://$S3_BUCKET --recursive
 
 Based on https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.html
