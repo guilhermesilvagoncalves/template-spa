@@ -24,6 +24,9 @@ export AWS_PROFILE=personal
 ## Get APIEndpoint from CloudFormation
 . ./scripts/getAPIEndpointFromCloudFormation.sh $PAGE_NAME
 
+## Get Frontend Endpoint from CloudFormation
+. ./scripts/getFrontEndpointFromCloudFormation.sh $PAGE_NAME
+
 ## Upload files to S3
 . ./scripts/uploadFilesToS3.sh "react-spa" $S3_BUCKET
 
