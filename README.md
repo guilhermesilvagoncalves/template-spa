@@ -43,9 +43,6 @@ export AWS_PROFILE=personal
 ## <a id="Delete-stack"> Deletar stack </a>
 . ./scripts/deleteStack.sh $S3_BUCKET $PAGE_NAME
 
-## <a id="Get-APIEndpoint-from-CloudFormation"> Obter APIEndpoint do CloudFront </a>
-. ./scripts/getAPIEndpointFromCloudFormation.sh $PAGE_NAME
-
 ## <a id="Get-Frontend-Endpoint-from-CloudFormation"> Obter endpoint do frontend do CloudFormation </a>
 . ./scripts/getFrontEndpointFromCloudFormation.sh $PAGE_NAME
 
