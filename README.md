@@ -1,53 +1,55 @@
+For english version, [click here](#README_eng.md)
+
 # template-spa
-This template intends to be an ready-to-use react-spa frontend, based on a AWS stack using CloudFront e S3.
-Feel free to create an repository based on it, and to contribute with code improvements :)
+Este template pretende ser um frontend react-spa pronto para uso, baseado em uma stack AWS usando CloudFront e S3.
+Sinta-se à vontade para criar um repositório baseado nele e contribuir com melhorias no código :)
 
 ## Pre-requisites
-To use this repo, you need to have an AWS account, locally configured on your machine to use CLI.
+Para usar este repositório, você precisa ter uma conta AWS, configurada localmente em sua máquina para usar CLI.
 
-For more information: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+Para obter mais informações: https://docs.aws.amazon.com/pt_br/cli/latest/userguide/cli-chap-configure.html
 
-## How to install
+## Como instalar
 npm install
 
-## <a id="Build-application">How to build</a>
+## <a id="Build-application">Como fazer o build</a>
 npm build
 
-## How to run
-yarn run
+## Como rodar
+npm run
 
-## Steps
-1. [Define environment variables](#define-environment-variables)
-2. [Create stack on AWS](#create-stack-on-AWS)
-3. [Get S3 bucket name from CloudFormation](#Get-S3-bucket-name-from-CloudFormation)
+## Passos
+1. [Definir variáveis de ambiente](#define-environment-variables)
+2. [Criar stack na AWS](#create-stack-on-AWS)
+3. [Obter nome do bucket S3 do CloudFormation](#Get-S3-bucket-name-from-CloudFormation)
 4. [Build application](#Build-application)
-5. [Upload files to S3](#Upload-files-to-S3)
-6. [Get Frontend Endpoint from CloudFormation and access your application](#Get-Frontend-Endpoint-from-CloudFormation-and-access-your-application)
+5. [Fazer upload dos arquivos para o S3](#Upload-files-to-S3)
+6. [Obter endpoint do frontend do CloudFormation and access your application](#Get-Frontend-Endpoint-from-CloudFormation-and-access-your-application)
 
 
 </br>
 </br>
 
-## <a id="define-environment-variables">Define environment variables</a>
+## <a id="define-environment-variables">Definir variáveis de ambiente</a>
 export PAGE_NAME=my-page-stack
 export AWS_PROFILE=personal
 
-## <a id="create-stack-on-AWS">Create stack on AWS</a>
+## <a id="create-stack-on-AWS">Criar stack na AWS</a>
 . ./scripts/createStack.sh $PAGE_NAME
 
-## <a id="Get-S3-bucket-name-from-CloudFormation"> Get S3 bucket name from CloudFormation </a>
+## <a id="Get-S3-bucket-name-from-CloudFormation"> Obter nome do bucket S3 do CloudFormation </a>
 . ./scripts/getS3BucketName.sh $PAGE_NAME
 
-## <a id="Delete-stack"> Delete stack </a>
+## <a id="Delete-stack"> Deletar stack </a>
 . ./scripts/deleteStack.sh $S3_BUCKET $PAGE_NAME
 
-## <a id="Get-APIEndpoint-from-CloudFormation"> Get APIEndpoint from CloudFormation </a>
+## <a id="Get-APIEndpoint-from-CloudFormation"> Obter APIEndpoint do CloudFront </a>
 . ./scripts/getAPIEndpointFromCloudFormation.sh $PAGE_NAME
 
-## <a id="Get-Frontend-Endpoint-from-CloudFormation"> Get Frontend Endpoint from CloudFormation </a>
+## <a id="Get-Frontend-Endpoint-from-CloudFormation"> Obter endpoint do frontend do CloudFormation </a>
 . ./scripts/getFrontEndpointFromCloudFormation.sh $PAGE_NAME
 
-## <a id="Upload-files-to-S3"> Upload files to S3 </a>
+## <a id="Upload-files-to-S3"> Fazer upload dos arquivos para o S3 </a>
 . ./scripts/uploadFilesToS3.sh "react-spa" $S3_BUCKET
 
-Based on https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.html
+### Baseado em https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.html
