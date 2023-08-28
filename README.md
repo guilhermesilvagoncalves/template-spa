@@ -1,4 +1,4 @@
-For english version, [click here](#README_eng.md)
+For english version, [click here](/README_eng.md)
 
 # template-spa
 Este template pretende ser um frontend react-spa pronto para uso, baseado em uma stack AWS usando CloudFront e S3.
